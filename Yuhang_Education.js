@@ -15,8 +15,7 @@ var classes = [
     { course: "Infocomm System Project", tutor: 1, student: [0, 1, 3] },
     { course: "Web API Development", tutor: 2, student: [1, 2, 3] }
 ];
-//in bookings first number is the index of timing
-//second is index of classes
+//bookings: { timing index: classes index }
 var rooms = [
     { room: 1, bookings: { 0: 0, 1: 0, 2: 1, 3: 1 } },
     { room: 2, bookings: { 0: 0 } }
@@ -26,8 +25,8 @@ module.exports = {
     //change class tutor
     //add student to class
     //get class info
-    //get room info
     //book a room
+    //get room info
     //get all booked rooms
 
     /**
