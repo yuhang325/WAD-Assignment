@@ -96,7 +96,7 @@ getRoom(roomIndex)
 {
     "room": int, //room number
     "bookings": {
-        "string" /*time*/ : "string" //course name
+        //time : course name
         //e.g.: 
         "09:00": "Infocomm System Project",
         "10:00": "Infocomm System Project"
@@ -115,7 +115,7 @@ getAllRoom()
     {
         "room": int, //room number
         "bookings": {
-            "string" /*time*/ : "string" //course name
+            //time : course name
             //e.g.: 
             "09:00": "Infocomm System Project",
             "10:00": "Infocomm System Project"
@@ -124,6 +124,5 @@ getAllRoom()
 ]
 ```
 # References
-- [GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
-- [Google](http://www.google.com)
-- 
+- https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+- https://www.google.com
