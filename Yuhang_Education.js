@@ -15,7 +15,7 @@ var classes = [
     { course: "Infocomm System Project", tutor: 1, student: [0, 1, 3] },
     { course: "Web API Development", tutor: 2, student: [1, 2, 3] }
 ];
-//bookings: { timing index: classes index }
+//bookings: { timing index : classes index }
 var rooms = [
     { room: 1, bookings: { 0: 0, 1: 0, 2: 1, 3: 1 } },
     { room: 2, bookings: { 0: 0 } }
