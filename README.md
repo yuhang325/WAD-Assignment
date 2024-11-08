@@ -15,8 +15,8 @@
 ```js
 var classess = [
     {
-        "course": "string"  //course name
-        "tutor": int        //index of tutors
+        "course": string,  //course name
+        "tutor": int,        //index of tutors
         "student": [int]    //array of student index
     }
 ]
@@ -26,7 +26,7 @@ var classess = [
 ```js
 var rooms = [
     {
-        "room": int     //room number
+        "room": int,     //room number
         "bookings": {
             timingIndex : classesIndex
         }
@@ -64,9 +64,9 @@ getClass(classIndex)
 - `return`: 
 ```js
 {
-    "course": "string"     //course name,
-    "tutor": "string"      //tutor name,
-    "student": ["string"]  //array of student names
+    "course": string.     //course name
+    "tutor": string.      //tutor name
+    "student": [string]  //array of student names
 }
 ```
 
