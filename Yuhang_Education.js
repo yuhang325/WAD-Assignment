@@ -15,10 +15,10 @@ var classes = [
     { course: "Infocomm System Project", tutor: 1, student: [1, 3, 4] },
     { course: "Web API Development", tutor: 2, student: [2, 3, 4] }
 ];
-var timing = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00"];
+var timing = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
 //in bookings first number is the index of timing
 //second is classes
-var room = [
+var rooms = [
     { room: 1, bookings: { 0: 0, 1: 0, 2: 1, 3: 1 } },
     { room: 2, bookings: { 0: 0 } }
 ];
@@ -89,13 +89,28 @@ module.exports = {
                 student.push(students[e])
             });
 
-            let x = {
+            return {
                 course: c.course,
                 tutor: tutors[c.tutor],
                 student
-            }
-            return x
+            };
         }
         throw new Error("Class not found");
     },
+
+    getRoom(roomIndex) {
+        let r = rooms[roomIndex];
+        if (r) {
+            let bookings = {}
+            for (let key in r.bookings) {
+                // bookings[timing[key]] = this.getClass(r.bookings[key]);  //don't need so detail
+                bookings[timing[key]] = classes[r.bookings[key]].course
+            }
+            return {
+                room: r.room,
+                bookings
+            };
+        }
+        throw new Error("Room not found");
+    }
 }
