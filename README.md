@@ -62,7 +62,7 @@ getClass(classIndex)
 - Get the selected class info
 - `classIndex`: Index of the classes `int`
 - `return`: 
-```json
+```js
 {
     "course": "string"     //course name,
     "tutor": "string"      //tutor name,
@@ -92,7 +92,7 @@ getRoom(roomIndex)
 - Get the room info
 - `roomIndex`: Index of the room `int`
 - `return`: 
-```json
+```js
 {
     "room": int, //room number
     "bookings": {
@@ -110,7 +110,7 @@ getAllRoom()
 ### Explanation:
 - Get all room info
 - `return`: 
-```json
+```js
 [
     {
         "room": int, //room number
