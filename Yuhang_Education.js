@@ -98,13 +98,51 @@ module.exports = {
         throw new Error("Class not found");
     },
 
+    /**
+     * book a room
+     * @param {int} roomIndex index of room
+     * @param {int} classIndex index of class
+     * @param {object} timeOptions can choose to enter index or a string
+     * @param {int} timeOptions.timeIndex index of timing
+     * @param {string} timeOptions.time string of a time (e.g. "09:00")
+     * @returns {string} success/error message
+     */
+    bookRoom(roomIndex, classIndex, { timeIndex, time }) {
+        let c = classes[classIndex];
+        let r = rooms[roomIndex];
+
+        if (c && r && (time || timeIndex)) {
+            let t = timeIndex ? timeIndex : timing.indexOf(time);
+
+            if (!timing[t]) {
+                return "Please enter valid time"
+            }
+
+            for (let k in r.bookings) {
+                if (k == t) {
+                    return "Slot unavailable, please choose another slot"
+                }
+            }
+
+            r.bookings[t] = classIndex;
+
+            return "Sucessfully booked";
+        }
+        return "Please enter vaild info";
+    },
+
+    /**
+     * get room info
+     * @param {int} roomIndex index of room
+     * @returns {JSON}
+     */
     getRoom(roomIndex) {
         let r = rooms[roomIndex];
         if (r) {
             let bookings = {}
-            for (let key in r.bookings) {
+            for (let k in r.bookings) {
                 // bookings[timing[key]] = this.getClass(r.bookings[key]);  //don't need so detail
-                bookings[timing[key]] = classes[r.bookings[key]].course
+                bookings[timing[k]] = classes[r.bookings[k]].course
             }
             return {
                 room: r.room,
@@ -112,5 +150,17 @@ module.exports = {
             };
         }
         throw new Error("Room not found");
+    },
+
+    /**
+     * get all room info
+     * @returns {Array<JSON>}
+     */
+    getAllRoom() {
+        let allRoom = [];
+        rooms.forEach((e, i) => {
+            allRoom.push(this.getRoom(i));
+        });
+        return allRoom;
     }
 }
