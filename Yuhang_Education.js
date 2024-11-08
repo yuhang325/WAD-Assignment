@@ -8,16 +8,15 @@ var students = [
     "Wenqi",
     "Marco",
     "Fahan",
-    "Diya",
-];
-var classes = [
-    { course: "Cross Platform Mobile App Development", tutor: 0, student: [1, 2, 3] },
-    { course: "Infocomm System Project", tutor: 1, student: [1, 3, 4] },
-    { course: "Web API Development", tutor: 2, student: [2, 3, 4] }
 ];
 var timing = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
+var classes = [
+    { course: "Cross Platform Mobile App Development", tutor: 0, student: [0, 1, 2] },
+    { course: "Infocomm System Project", tutor: 1, student: [0, 1, 3] },
+    { course: "Web API Development", tutor: 2, student: [1, 2, 3] }
+];
 //in bookings first number is the index of timing
-//second is classes
+//second is index of classes
 var rooms = [
     { room: 1, bookings: { 0: 0, 1: 0, 2: 1, 3: 1 } },
     { room: 2, bookings: { 0: 0 } }
@@ -29,7 +28,7 @@ module.exports = {
     //get class info
     //get room info
     //book a room
-    //get all booked rooms (maybe)
+    //get all booked rooms
 
     /**
      * change the tutor for a class
@@ -66,12 +65,10 @@ module.exports = {
 
                 return "Sucessfully added " + students[studentIndex] + " to " + c.course;
             }
-
             return "Student already exist";
         } else if (c) {
             return "Student not found";
         }
-
         return "Class not found";
     },
 
@@ -79,6 +76,12 @@ module.exports = {
      * get class info
      * @param {int} classIndex index of classes
      * @returns {JSON}
+     * {
+     * 
+     *      course: string,      //course name
+     *      tutor: string,       //tutor name
+     *      student: [string]   //array of student names
+     * }
      */
     getClass(classIndex) {
         let c = classes[classIndex];
@@ -135,6 +138,16 @@ module.exports = {
      * get room info
      * @param {int} roomIndex index of room
      * @returns {JSON}
+     * {
+     * 
+     *      room: int, //room number
+     *      bookings: {
+     *          string  --time: string,  //course name
+     *          //e.g.: 
+     *          "09:00": "Infocomm System Project",
+     *          "10:00": "Infocomm System Project"
+     *      }
+     * }
      */
     getRoom(roomIndex) {
         let r = rooms[roomIndex];
@@ -155,6 +168,18 @@ module.exports = {
     /**
      * get all room info
      * @returns {Array<JSON>}
+     * [
+     * 
+     *      {
+     *          room: int, //room number
+     *          bookings: {
+     *              string  --time: string  //course name
+     *              //e.g.: 
+     *              "09:00": "Infocomm System Project",
+     *              "10:00": "Infocomm System Project"
+     *          }
+     *      }
+     * ]
      */
     getAllRoom() {
         let allRoom = [];
