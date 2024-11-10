@@ -1,4 +1,6 @@
 # Functions
+This is a timetable booking API.
+
 0. [Dummy Data](#data)
 1. [updateClassTutor](#updateclasstutor)
 2. [addStudentToClass](#addstudenttoclass)
