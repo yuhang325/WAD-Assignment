@@ -1,22 +1,22 @@
-var tutors = [
+let tutors = [
     "Ali",
     "Beatriz",
     "Charles"
 ];
-var students = [
+let students = [
     "Yuhang",
     "Wenqi",
     "Marco",
     "Fahan",
 ];
-var timing = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
-var classes = [
+const timing = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
+let classes = [
     { course: "Cross Platform Mobile App Development", tutor: 0, student: [0, 1, 2] },
     { course: "Infocomm System Project", tutor: 1, student: [0, 1, 3] },
     { course: "Web API Development", tutor: 2, student: [1, 2, 3] }
 ];
 //bookings: { timing index : classes index }
-var rooms = [
+let rooms = [
     { room: 1, bookings: { 0: 0, 1: 0, 2: 1, 3: 1 } },
     { room: 2, bookings: { 0: 0 } }
 ];
