@@ -1,5 +1,13 @@
+# Installation Guild
+1. Download `node.js`
+2. Download `Yuhang_Education.js`
+3. Require the file
+```js
+const edu = require("./Yuhang_Education");
+```
+
 # Functions
-This is a timetable booking API.
+This is a room booking API.
 
 0. [Dummy Data](#data)
 1. [updateClassTutor](#updateclasstutor)

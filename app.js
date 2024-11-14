@@ -24,5 +24,3 @@ try {
 
 console.log(edu.getAllRoom());
 console.log(edu.getAllRoom()[1].bookings);
-
-
